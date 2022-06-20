@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) fixed;
+    color: #fff;
+    font-size: 16px;
+    font-family: pragmatica-condensed;
+}
+
+h1 {
+    text-align: center;
+    color: #f2ba1c;
+    font-size: 3em;
+    margin-bottom: 1em;
+    font-weight: 900;
+}
+
+a {
+    color: #fff;
+}
+
+#planets {
+    padding: 20px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.planet-box {
+    position: relative;
+    cursor: pointer;
+    padding: 20px;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.planet-box:hover {
+    opacity: 1;
+}
+
+.planet-info {
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-75px) translateY(-40px);
+    background: rgba(21, 60, 76, 0.5);
+    backdrop-filter: blur(10px);
+    font-size: 13px;
+    color: #fff;
+    padding: 10px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.4s;
+    transition-delay: 0.1s;
+    width: 150px;
+    pointer-events: none;
+    border: 1px solid #44938e;
+    text-align: center;
+    z-index: 2;
+}
+
+.planet-info span {
+    display: block;
+    margin-top: 5px;
+}
+
+.planet-info h2, .planet-info strong {
+    font-weight: 900;
+}
+
+.planet-info h2 {
+    color: #44938e;
+}
+
+.planet-box:hover .planet-info {
+    opacity: 1;
+    transform: translateX(-75px);
+}
+
+.planet {
+    width: 100%;
+    padding: 5px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    transition-delay: 0s;
+    box-shadow: inset -20px 0  20px rgba(0,0,0,0.4);
+}
+
+.planet-box:hover .planet {
+    transform: scale(1.1);
+}
+
+.planet:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    top: 0;
+    height: 100%;
+    background: radial-gradient(transparent 50%, rgba(0,0,0,0.3) 55%);
+    background-position: center right;
+    background-size: 180% 180%
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    #planets {
+        flex-direction: column;
+    }
+    
+    .planet-info {
+        left: 50%;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -60%);
+        width: 200px;
+    }
+    
+    .planet-info h2 {
+        color: #fff;
+    }
+    
+    .planet-box:hover .planet-info {
+        transform: translate(-50%, -50%);
+    }
+}
